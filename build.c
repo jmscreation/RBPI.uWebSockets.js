@@ -69,6 +69,7 @@ char uWebSocketsJSVersion[64];
 /* Downloads headers, creates folders */
 void prepare() {
     { // Get version information
+        printf("\033[1;34m Gathering uWebSockets.js latest version information...\033[0m \n");
         char buf[128];
         exec("curl -s https://api.github.com/repos/uNetworking/uWebSockets.js/releases | python -c \"import sys,json; print json.load(sys.stdin)[0]['tag_name']\"", buf);
         strcpy(uWebSocketsJSVersion, buf+1); // remove 'v' from the version info
